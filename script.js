@@ -1,4 +1,4 @@
- // Smooth navigation between sections with enhanced animations
+// Smooth navigation between sections with enhanced animations
 document.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.querySelectorAll("nav a")
   const sections = document.querySelectorAll("section")
@@ -171,8 +171,8 @@ function generateProfessionalTemplate(data) {
         <h1 class="portfolio-name" style="color: #ffffff;">${data.name}</h1>
         <p class="portfolio-title" style="color: #cccccc;">${data.branch} • ${data.year}</p>
         <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem;">
-          ${data.email ? `<span style="color: #999;">📧 ${data.email}</span>` : ""}
-          ${data.phone ? `<span style="color: #999;">📱 ${data.phone}</span>` : ""}
+          ${data.email ? <span style="color: #999;">📧 ${data.email}</span> : ""}
+          ${data.phone ? <span style="color: #999;">📱 ${data.phone}</span> : ""}
         </div>
       </div>
       
@@ -181,14 +181,14 @@ function generateProfessionalTemplate(data) {
           <div class="portfolio-section">
             <h4 style="color: #ffffff; border-bottom: 2px solid #666;">Academic Performance</h4>
             <p><strong>CGPA:</strong> ${data.cgpa}/10</p>
-            ${data.percentage ? `<p><strong>Percentage:</strong> ${data.percentage}%</p>` : ""}
+            ${data.percentage ? <p><strong>Percentage:</strong> ${data.percentage}%</p> : ""}
           </div>
           
           <div class="portfolio-section">
             <h4 style="color: #ffffff; border-bottom: 2px solid #666;">Technical Skills</h4>
             <p>${data.technicalSkills}</p>
-            ${data.languages ? `<p><strong>Languages:</strong> ${data.languages}</p>` : ""}
-            ${data.tools ? `<p><strong>Tools:</strong> ${data.tools}</p>` : ""}
+            ${data.languages ? <p><strong>Languages:</strong> ${data.languages}</p> : ""}
+            ${data.tools ? <p><strong>Tools:</strong> ${data.tools}</p> : ""}
           </div>
           
           ${
@@ -207,7 +207,7 @@ function generateProfessionalTemplate(data) {
           <div class="portfolio-section">
             <h4 style="color: #ffffff; border-bottom: 2px solid #666;">Projects</h4>
             <div style="white-space: pre-line;">${data.projects}</div>
-            ${data.github ? `<p><strong>GitHub:</strong> <a href="${data.github}" style="color: #4a9eff;">${data.github}</a></p>` : ""}
+            ${data.github ? <p><strong>GitHub:</strong> <a href="${data.github}" style="color: #4a9eff;">${data.github}</a></p> : ""}
           </div>
           
           ${
@@ -250,9 +250,9 @@ function generateModernTemplate(data) {
         <h1 class="portfolio-name">${data.name}</h1>
         <p class="portfolio-title">${data.branch} Student • ${data.year}</p>
         <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 1rem; flex-wrap: wrap;">
-          ${data.email ? `<span style="color: #b0b0b0;">✉️ ${data.email}</span>` : ""}
-          ${data.phone ? `<span style="color: #b0b0b0;">📞 ${data.phone}</span>` : ""}
-          ${data.linkedin ? `<span style="color: #b0b0b0;">🔗 LinkedIn</span>` : ""}
+          ${data.email ? <span style="color: #b0b0b0;">✉ ${data.email}</span> : ""}
+          ${data.phone ? <span style="color: #b0b0b0;">📞 ${data.phone}</span> : ""}
+          ${data.linkedin ? <span style="color: #b0b0b0;">🔗 LinkedIn</span> : ""}
         </div>
       </div>
       
@@ -292,10 +292,10 @@ function generateModernTemplate(data) {
         <h4>🚀 Technical Skills</h4>
         <div style="background: rgba(40, 40, 40, 0.4); padding: 1rem; border-radius: 0.5rem; margin-bottom: 1rem;">
           <p style="margin-bottom: 0.5rem;"><strong>Core Skills:</strong> ${data.technicalSkills}</p>
-          ${data.languages ? `<p style="margin-bottom: 0.5rem;"><strong>Languages:</strong> ${data.languages}</p>` : ""}
-          ${data.tools ? `<p><strong>Tools & Frameworks:</strong> ${data.tools}</p>` : ""}
+          ${data.languages ? <p style="margin-bottom: 0.5rem;"><strong>Languages:</strong> ${data.languages}</p> : ""}
+          ${data.tools ? <p><strong>Tools & Frameworks:</strong> ${data.tools}</p> : ""}
         </div>
-        ${data.softSkills ? `<p><strong>Soft Skills:</strong> ${data.softSkills}</p>` : ""}
+        ${data.softSkills ? <p><strong>Soft Skills:</strong> ${data.softSkills}</p> : ""}
       </div>
       
       <div class="portfolio-section">
@@ -303,7 +303,7 @@ function generateModernTemplate(data) {
         <div style="background: rgba(40, 40, 40, 0.4); padding: 1rem; border-radius: 0.5rem; white-space: pre-line;">
           ${data.projects}
         </div>
-        ${data.github ? `<p style="margin-top: 1rem;"><strong>GitHub:</strong> <a href="${data.github}" style="color: #ffd700;">${data.github}</a></p>` : ""}
+        ${data.github ? <p style="margin-top: 1rem;"><strong>GitHub:</strong> <a href="${data.github}" style="color: #ffd700;">${data.github}</a></p> : ""}
       </div>
       
       ${
@@ -348,8 +348,8 @@ function generateCreativeTemplate(data) {
         <h1 class="portfolio-name" style="background: linear-gradient(135deg, #ff64c8, #ffd700); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">${data.name}</h1>
         <p class="portfolio-title" style="color: #ff64c8;">${data.branch} • Creative Portfolio</p>
         <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem;">
-          ${data.email ? `<span style="color: #b0b0b0;">💌 ${data.email}</span>` : ""}
-          ${data.phone ? `<span style="color: #b0b0b0;">📱 ${data.phone}</span>` : ""}
+          ${data.email ? <span style="color: #b0b0b0;">💌 ${data.email}</span> : ""}
+          ${data.phone ? <span style="color: #b0b0b0;">📱 ${data.phone}</span> : ""}
         </div>
       </div>
       
@@ -357,7 +357,7 @@ function generateCreativeTemplate(data) {
         <div style="flex: 1; min-width: 250px; background: rgba(255, 100, 200, 0.1); padding: 1.5rem; border-radius: 1rem; border: 1px solid rgba(255, 100, 200, 0.2);">
           <h4 style="color: #ff64c8; margin-bottom: 1rem;">🎨 Creative Skills</h4>
           <p>${data.technicalSkills}</p>
-          ${data.softSkills ? `<p style="margin-top: 0.5rem; font-style: italic;">${data.softSkills}</p>` : ""}
+          ${data.softSkills ? <p style="margin-top: 0.5rem; font-style: italic;">${data.softSkills}</p> : ""}
         </div>
         
         <div style="flex: 1; min-width: 250px; background: rgba(255, 215, 0, 0.1); padding: 1.5rem; border-radius: 1rem; border: 1px solid rgba(255, 215, 0, 0.2);">
@@ -371,7 +371,7 @@ function generateCreativeTemplate(data) {
       <div class="portfolio-section" style="background: rgba(20, 20, 20, 0.6); border-radius: 1rem; padding: 2rem; border: 1px solid rgba(255, 100, 200, 0.2);">
         <h4 style="color: #ff64c8;">🚀 Creative Projects</h4>
         <div style="white-space: pre-line; line-height: 1.8;">${data.projects}</div>
-        ${data.github ? `<p style="margin-top: 1rem;"><strong>Portfolio:</strong> <a href="${data.github}" style="color: #ffd700;">${data.github}</a></p>` : ""}
+        ${data.github ? <p style="margin-top: 1rem;"><strong>Portfolio:</strong> <a href="${data.github}" style="color: #ffd700;">${data.github}</a></p> : ""}
       </div>
       
       ${
@@ -401,7 +401,7 @@ function generateMinimalTemplate(data) {
         <h1 class="portfolio-name" style="color: #ffffff; font-weight: 300; font-size: 2.5rem;">${data.name}</h1>
         <p class="portfolio-title" style="color: #cccccc; font-weight: 300;">${data.branch} • ${data.year}</p>
         <div style="margin-top: 1rem; font-size: 0.9rem; color: #999;">
-          ${data.email ? `${data.email}` : ""} ${data.phone ? ` • ${data.phone}` : ""}
+          ${data.email ? ${data.email} : ""} ${data.phone ? ` • ${data.phone}` : ""}
         </div>
       </div>
       
@@ -417,7 +417,7 @@ function generateMinimalTemplate(data) {
           <div style="margin-bottom: 2rem;">
             <h4 style="color: #ffffff; font-weight: 400; margin-bottom: 1rem; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1em;">Skills</h4>
             <p style="line-height: 1.8;">${data.technicalSkills}</p>
-            ${data.languages ? `<p style="margin-top: 1rem; line-height: 1.8;"><strong>Languages:</strong> ${data.languages}</p>` : ""}
+            ${data.languages ? <p style="margin-top: 1rem; line-height: 1.8;"><strong>Languages:</strong> ${data.languages}</p> : ""}
           </div>
           
           ${
@@ -436,7 +436,7 @@ function generateMinimalTemplate(data) {
           <div style="margin-bottom: 2rem;">
             <h4 style="color: #ffffff; font-weight: 400; margin-bottom: 1rem; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1em;">Projects</h4>
             <div style="white-space: pre-line; line-height: 1.8;">${data.projects}</div>
-            ${data.github ? `<p style="margin-top: 1rem;"><a href="${data.github}" style="color: #cccccc; text-decoration: underline;">${data.github}</a></p>` : ""}
+            ${data.github ? <p style="margin-top: 1rem;"><a href="${data.github}" style="color: #cccccc; text-decoration: underline;">${data.github}</a></p> : ""}
           </div>
           
           ${
@@ -507,7 +507,7 @@ function exportPortfolio(name, template) {
           📝 Export as Text
         </button>
         <button onclick="printPortfolio()" class="btn" style="background: rgba(255, 215, 0, 0.2); color: #ffd700; width: 100%;">
-          🖨️ Print Portfolio
+          🖨 Print Portfolio
         </button>
       </div>
       <button onclick="closeExportModal()" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: #ffd700; font-size: 1.5rem; cursor: pointer;">×</button>
@@ -585,7 +585,7 @@ function exportAsHTML(name, template) {
 </html>
   `
 
-  downloadFile(fullHTML, `${name}_Portfolio_${template}.html`, "text/html")
+  downloadFile(fullHTML, ${name}_Portfolio_${template}.html, "text/html")
   closeExportModal()
 }
 
@@ -608,36 +608,36 @@ ${"-".repeat(16)}
 Branch: ${data.branch}
 Year: ${data.year}
 CGPA: ${data.cgpa}/10
-${data.percentage ? `Percentage: ${data.percentage}%` : ""}
+${data.percentage ? Percentage: ${data.percentage}% : ""}
 
 TECHNICAL SKILLS
 ${"-".repeat(16)}
 ${data.technicalSkills}
 
-${data.languages ? `Programming Languages: ${data.languages}` : ""}
-${data.tools ? `Tools & Frameworks: ${data.tools}` : ""}
-${data.softSkills ? `Soft Skills: ${data.softSkills}` : ""}
+${data.languages ? Programming Languages: ${data.languages} : ""}
+${data.tools ? Tools & Frameworks: ${data.tools} : ""}
+${data.softSkills ? Soft Skills: ${data.softSkills} : ""}
 
 PROJECTS
 ${"-".repeat(8)}
 ${data.projects}
 
-${data.github ? `GitHub: ${data.github}` : ""}
+${data.github ? GitHub: ${data.github} : ""}
 
-${data.achievements ? `ACHIEVEMENTS\n${"-".repeat(12)}\n${data.achievements}\n` : ""}
+${data.achievements ? ACHIEVEMENTS\n${"-".repeat(12)}\n${data.achievements}\n : ""}
 
-${data.certifications ? `CERTIFICATIONS\n${"-".repeat(14)}\n${data.certifications}\n` : ""}
+${data.certifications ? CERTIFICATIONS\n${"-".repeat(14)}\n${data.certifications}\n : ""}
 
-${data.experience ? `EXPERIENCE\n${"-".repeat(10)}\n${data.experience}\n` : ""}
+${data.experience ? EXPERIENCE\n${"-".repeat(10)}\n${data.experience}\n : ""}
 
-${data.activities ? `ACTIVITIES\n${"-".repeat(10)}\n${data.activities}\n` : ""}
+${data.activities ? ACTIVITIES\n${"-".repeat(10)}\n${data.activities}\n : ""}
 
 Generated using Nexus Portfolio Maker - AIT Pune
 Template: ${template.charAt(0).toUpperCase() + template.slice(1)}
 Date: ${new Date().toLocaleDateString()}
   `
 
-  downloadFile(textContent, `${name}_Portfolio_${template}.txt`, "text/plain")
+  downloadFile(textContent, ${name}_Portfolio_${template}.txt, "text/plain")
   closeExportModal()
 }
 
@@ -780,7 +780,7 @@ if (canvas) {
           ctx.beginPath()
           ctx.moveTo(d.x, d.y)
           ctx.lineTo(d2.x, d2.y)
-          ctx.strokeStyle = `rgba(255, 215, 0, ${opacity})`
+          ctx.strokeStyle = rgba(255, 215, 0, ${opacity})
           ctx.lineWidth = 1
           ctx.stroke()
         }
@@ -801,7 +801,7 @@ if (canvas) {
         const force = ((100 - dist) / 100) * 0.5
         dot.dx += ((dot.x - mouseX) / dist) * force * 0.1
         dot.dy += ((dot.y - mouseY) / dist) * force * 0.1
-      }
-    })
-  })
+      }
+    })
+  })
 }
