@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nexus Portfolio Generator | One-stop platform for creation of portfolios</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <h1>NEXUS</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#create" class="active">Create Portfolio</a>
+      <a href="#templates">Templates</a>
+      <a href="#gallery">Gallery</a>
+    </nav>
+  </header>
+
+  <!-- MAIN HERO / WELCOME -->
+  <section id="home" class="hero">
+    <div class="welcome-box">
+      <h2>ONE-STOP PLATFORM FOR CREATION OF PORTFOLIOS</h2>
+      <p>Build stunning professional portfolios in minutes. Our intelligent system transforms your information into beautiful, customized portfolios that showcase your unique talents and achievements.</p>
+      <button class="btn" onclick="showPortfolioForm()">Start Creating</button>
+      <button class="btn btn-secondary" onclick="showTemplates()">Browse Templates</button>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO CREATION FORM -->
+  <section id="portfolio-form" class="form-section hidden">
+    <div class="form-container">
+      <h2>Tell Us About Yourself</h2>
+      <form id="portfolioForm">
+        <!-- Personal Information -->
+        <div class="form-group">
+          <h3>Personal Information</h3>
+          <div class="input-row">
+            <div class="input-group">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" name="fullName" required>
+            </div>
+            <div class="input-group">
+              <label for="profession">Profession/Title</label>
+              <input type="text" id="profession" name="profession" placeholder="e.g., Software Developer, Designer">
+            </div>
+          </div>
+          <div class="input-row">
+            <div class="input-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="input-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone">
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="bio">Professional Bio</label>
+            <textarea id="bio" name="bio" rows="4" placeholder="Tell us about yourself, your passion, and what makes you unique..."></textarea>
+          </div>
+        </div>
+
+        <!-- Skills -->
+        <div class="form-group">
+          <h3>Skills & Expertise</h3>
+          <div class="input-group">
+            <label for="skills">Skills (comma-separated)</label>
+            <input type="text" id="skills" name="skills" placeholder="JavaScript, Python, UI/UX Design, Project Management...">
+          </div>
+        </div>
+
+        <!-- Experience -->
+        <div class="form-group">
+          <h3>Work Experience</h3>
+          <div id="experience-container">
+            <div class="experience-item">
+              <div class="input-row">
+                <div class="input-group">
+                  <label>Job Title</label>
+                  <input type="text" name="jobTitle[]" placeholder="e.g., Frontend Developer">
+                </div>
+                <div class="input-group">
+                  <label>Company</label>
+                  <input type="text" name="company[]" placeholder="e.g., Tech Corp">
+                </div>
+              </div>
+              <div class="input-row">
+                <div class="input-group">
+                  <label>Start Date</label>
+                  <input type="month" name="startDate[]">
+                </div>
+                <div class="input-group">
+                  <label>End Date</label>
+                  <input type="month" name="endDate[]">
+                </div>
+              </div>
+              <div class="input-group">
+                <label>Description</label>
+                <textarea name="jobDescription[]" rows="3" placeholder="Describe your role and achievements..."></textarea>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="btn btn-small" onclick="addExperience()">+ Add Experience</button>
+        </div>
+
+        <!-- Projects -->
+        <div class="form-group">
+          <h3>Projects</h3>
+          <div id="projects-container">
+            <div class="project-item">
+              <div class="input-row">
+                <div class="input-group">
+                  <label>Project Name</label>
+                  <input type="text" name="projectName[]" placeholder="e.g., E-commerce Website">
+                </div>
+                <div class="input-group">
+                  <label>Project URL</label>
+                  <input type="url" name="projectUrl[]" placeholder="https://...">
+                </div>
+              </div>
+              <div class="input-group">
+                <label>Description</label>
+                <textarea name="projectDescription[]" rows="3" placeholder="Describe the project and your role..."></textarea>
+              </div>
+              <div class="input-group">
+                <label>Technologies Used</label>
+                <input type="text" name="projectTech[]" placeholder="React, Node.js, MongoDB...">
+              </div>
+            </div>
+          </div>
+          <button type="button" class="btn btn-small" onclick="addProject()">+ Add Project</button>
+        </div>
+
+        <!-- Education -->
+        <div class="form-group">
+          <h3>Education</h3>
+          <div class="input-row">
+            <div class="input-group">
+              <label for="degree">Degree</label>
+              <input type="text" id="degree" name="degree" placeholder="e.g., Bachelor of Computer Science">
+            </div>
+            <div class="input-group">
+              <label for="institution">Institution</label>
+              <input type="text" id="institution" name="institution" placeholder="e.g., AIT Pune">
+            </div>
+          </div>
+          <div class="input-row">
+            <div class="input-group">
+              <label for="graduationYear">Graduation Year</label>
+              <input type="number" id="graduationYear" name="graduationYear" min="1990" max="2030">
+            </div>
+            <div class="input-group">
+              <label for="gpa">GPA/Percentage</label>
+              <input type="text" id="gpa" name="gpa" placeholder="e.g., 3.8/4.0 or 85%">
+            </div>
+          </div>
+        </div>
+
+        <!-- Social Links -->
+        <div class="form-group">
+          <h3>Social Links</h3>
+          <div class="input-row">
+            <div class="input-group">
+              <label for="linkedin">LinkedIn</label>
+              <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+            </div>
+            <div class="input-group">
+              <label for="github">GitHub</label>
+              <input type="url" id="github" name="github" placeholder="https://github.com/yourusername">
+            </div>
+          </div>
+          <div class="input-row">
+            <div class="input-group">
+              <label for="portfolio">Personal Website</label>
+              <input type="url" id="portfolio" name="portfolio" placeholder="https://yourwebsite.com">
+            </div>
+            <div class="input-group">
+              <label for="twitter">Twitter</label>
+              <input type="url" id="twitter" name="twitter" placeholder="https://twitter.com/yourusername">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn btn-secondary" onclick="showHome()">Back</button>
+          <button type="submit" class="btn">Generate Portfolio</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO DISPLAY -->
+  <section id="portfolio-display" class="portfolio-section hidden">
+    <div class="portfolio-controls">
+      <button class="btn btn-secondary" onclick="editPortfolio()">Edit</button>
+      <button class="btn" onclick="downloadPortfolio()">Download</button>
+      <button class="btn btn-small" onclick="showHome()">New Portfolio</button>
+    </div>
+    <div id="generated-portfolio" class="portfolio-container">
+      <!-- Generated portfolio will be inserted here -->
+    </div>
+  </section>
+
+  <!-- TEMPLATES SECTION -->
+  <section id="templates" class="templates-section hidden">
+    <div class="templates-container">
+      <h2>Choose a Template</h2>
+      <div class="templates-grid">
+        <div class="template-card" data-template="modern">
+          <div class="template-preview modern-preview">
+            <div class="preview-header"></div>
+            <div class="preview-content">
+              <div class="preview-text"></div>
+              <div class="preview-text short"></div>
+            </div>
+          </div>
+          <h3>Modern</h3>
+          <p>Clean and professional design</p>
+          <button class="btn btn-small" onclick="selectTemplate('modern')">Use Template</button>
+        </div>
+        
+        <div class="template-card" data-template="creative">
+          <div class="template-preview creative-preview">
+            <div class="preview-header creative"></div>
+            <div class="preview-content">
+              <div class="preview-text"></div>
+              <div class="preview-text short"></div>
+            </div>
+          </div>
+          <h3>Creative</h3>
+          <p>Bold and artistic layout</p>
+          <button class="btn btn-small" onclick="selectTemplate('creative')">Use Template</button>
+        </div>
+        
+        <div class="template-card" data-template="minimal">
+          <div class="template-preview minimal-preview">
+            <div class="preview-header minimal"></div>
+            <div class="preview-content">
+              <div class="preview-text"></div>
+              <div class="preview-text short"></div>
+            </div>
+          </div>
+          <h3>Minimal</h3>
+          <p>Simple and elegant design</p>
+          <button class="btn btn-small" onclick="selectTemplate('minimal')">Use Template</button>
+        </div>
+      </div>
+      <div class="templates-actions">
+        <button class="btn btn-secondary" onclick="showHome()">Back</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Nexus – One-stop platform for creation of portfolios | Built for Professionals, by Professionals</p>
+  </footer>
+
+  <canvas id="network"></canvas>
+  <script src="script.js"></script>
+</body>
+</html>
