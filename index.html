@@ -1,262 +1,241 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Nexus Portfolio Generator | One-stop platform for creation of portfolios</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus | AIT Pune</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- HEADER -->
+  <!-- Header -->
   <header>
-    <h1>NEXUS</h1>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#create" class="active">Create Portfolio</a>
-      <a href="#templates">Templates</a>
-      <a href="#gallery">Gallery</a>
-    </nav>
+    <div class="header-content">
+      <div class="logo">
+        <h1>Nexus</h1>
+        <span class="logo-subtitle">AIT Pune</span>
+      </div>
+      <nav>
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#portfolio" class="nav-link">Portfolio Maker</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- MAIN HERO / WELCOME -->
+  <!-- Badge -->
   <section id="home" class="hero">
-    <div class="welcome-box">
-      <h2>ONE-STOP PLATFORM FOR CREATION OF PORTFOLIOS</h2>
-      <p>Build stunning professional portfolios in minutes. Our intelligent system transforms your information into beautiful, customized portfolios that showcase your unique talents and achievements.</p>
-      <button class="btn" onclick="showPortfolioForm()">Start Creating</button>
-      <button class="btn btn-secondary" onclick="showTemplates()">Browse Templates</button>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span>🎓 Student Platform</span>
+      </div>
+      <h2 class="hero-title">Welcome to <span class="gradient-text">Nexus</span></h2>
+
+      <p class="hero-description">The ultimate platform for AIT Pune students to create stunning professional portfolios that showcase your skills and achievements.</p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">500+</span>
+          <span class="stat-label">Students</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">100+</span>
+          <span class="stat-label">Portfolios</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">95%</span>
+          <span class="stat-label">Success Rate</span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- PORTFOLIO CREATION FORM -->
-  <section id="portfolio-form" class="form-section hidden">
+  <!-- Portfolio -->
+  <section id="portfolio" class="hero" style="display:none;">
     <div class="form-container">
-      <h2>Tell Us About Yourself</h2>
-      <form id="portfolioForm">
-        <!-- Personal Information -->
-        <div class="form-group">
+      <div class="form-header">
+        <h2>Portfolio Maker</h2>
+        <p>Create a comprehensive professional portfolio that showcases your complete profile</p>
+      </div>
+      <form onsubmit="handlePortfolioSubmit(event)" class="modern-form">
+        <!-- Information -->
+        <div class="form-section">
           <h3>Personal Information</h3>
-          <div class="input-row">
-            <div class="input-group">
-              <label for="fullName">Full Name</label>
-              <input type="text" id="fullName" name="fullName" required>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="p-name">Full Name</label>
+              <input id="p-name" type="text" placeholder="Enter your full name" required>
             </div>
-            <div class="input-group">
-              <label for="profession">Profession/Title</label>
-              <input type="text" id="profession" name="profession" placeholder="e.g., Software Developer, Designer">
-            </div>
-          </div>
-          <div class="input-row">
-            <div class="input-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required>
-            </div>
-            <div class="input-group">
-              <label for="phone">Phone</label>
-              <input type="tel" id="phone" name="phone">
+            <div class="form-group">
+              <label for="p-email">Email</label>
+              <input id="p-email" type="email" placeholder="your.email@aitpune.edu.in" required>
             </div>
           </div>
-          <div class="input-group">
-            <label for="bio">Professional Bio</label>
-            <textarea id="bio" name="bio" rows="4" placeholder="Tell us about yourself, your passion, and what makes you unique..."></textarea>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="p-phone">Phone Number</label>
+              <input id="p-phone" type="tel" placeholder="+91 XXXXX XXXXX" required>
+            </div>
+            <div class="form-group">
+              <label for="p-linkedin">LinkedIn Profile</label>
+              <input id="p-linkedin" type="url" placeholder="https://linkedin.com/in/yourprofile">
+            </div>
           </div>
         </div>
 
-        <!-- Skills -->
-        <div class="form-group">
-          <h3>Skills & Expertise</h3>
-          <div class="input-group">
-            <label for="skills">Skills (comma-separated)</label>
-            <input type="text" id="skills" name="skills" placeholder="JavaScript, Python, UI/UX Design, Project Management...">
+        <!-- Academic Stats -->
+        <div class="form-section">
+          <h3>Academic Details</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="p-branch">Branch</label>
+              <select id="p-branch" required>
+                <option value="">Select your branch</option>
+                <option value="Computer Engineering">Computer Engineering</option>
+                <option value="Information Technology">Information Technology</option>
+                <option value="Electronics & Telecommunication">Electronics & Telecommunication</option>
+                <option value="Mechanical Engineering">Mechanical Engineering</option>
+                <option value="Civil Engineering">Civil Engineering</option>
+                <option value="Electrical Engineering">Electrical Engineering</option>
+                <option value="Instrumentation & Control">Instrumentation & Control</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="p-year">Current Year</label>
+              <select id="p-year" required>
+                <option value="">Select year</option>
+                <option value="First Year">First Year</option>
+                <option value="Second Year">Second Year</option>
+                <option value="Third Year">Third Year</option>
+                <option value="Final Year">Final Year</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="p-cgpa">CGPA</label>
+              <input id="p-cgpa" type="number" step="0.01" min="0" max="10" placeholder="8.5" required>
+            </div>
+            <div class="form-group">
+              <label for="p-percentage">Percentage</label>
+              <input id="p-percentage" type="number" step="0.01" min="0" max="100" placeholder="85.5">
+            </div>
+          </div>
+        </div>
+
+        <!-- Skills and Technologies -->
+        <div class="form-section">
+          <h3>Skills & Technologies</h3>
+          <div class="form-group form-row-full">
+            <label for="p-technical-skills">Technical Skills</label>
+            <textarea id="p-technical-skills" rows="3" placeholder="e.g., Python, Java, React, Node.js, Machine Learning, Data Structures, Algorithms" required></textarea>
+          </div>
+          <div class="form-group form-row-full">
+            <label for="p-soft-skills">Soft Skills</label>
+            <textarea id="p-soft-skills" rows="2" placeholder="e.g., Leadership, Communication, Problem Solving, Team Work"></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="p-languages">Programming Languages</label>
+              <input id="p-languages" type="text" placeholder="Python, Java, C++, JavaScript">
+            </div>
+            <div class="form-group">
+              <label for="p-tools">Tools & Frameworks</label>
+              <input id="p-tools" type="text" placeholder="Git, Docker, React, Django">
+            </div>
+          </div>
+        </div>
+
+        <!-- Projects -->
+        <div class="form-section">
+          <h3>Projects</h3>
+          <div class="form-group form-row-full">
+            <label for="p-projects">Major Projects</label>
+            <textarea id="p-projects" rows="4" placeholder="Project 1: Title - Brief description and technologies used&#10;Project 2: Title - Brief description and technologies used" required></textarea>
+          </div>
+          <div class="form-group form-row-full">
+            <label for="p-github">GitHub Profile</label>
+            <input id="p-github" type="url" placeholder="https://github.com/yourusername">
+          </div>
+        </div>
+
+        <!-- Achievements -->
+        <div class="form-section">
+          <h3>Achievements & Certifications</h3>
+          <div class="form-group form-row-full">
+            <label for="p-achievements">Achievements</label>
+            <textarea id="p-achievements" rows="3" placeholder="• Winner of XYZ Hackathon 2024&#10;• Dean's List for Academic Excellence&#10;• Published research paper in ABC Conference"></textarea>
+          </div>
+          <div class="form-group form-row-full">
+            <label for="p-certifications">Certifications</label>
+            <textarea id="p-certifications" rows="3" placeholder="• AWS Cloud Practitioner&#10;• Google Data Analytics Certificate&#10;• Microsoft Azure Fundamentals"></textarea>
           </div>
         </div>
 
         <!-- Experience -->
-        <div class="form-group">
-          <h3>Work Experience</h3>
-          <div id="experience-container">
-            <div class="experience-item">
-              <div class="input-row">
-                <div class="input-group">
-                  <label>Job Title</label>
-                  <input type="text" name="jobTitle[]" placeholder="e.g., Frontend Developer">
-                </div>
-                <div class="input-group">
-                  <label>Company</label>
-                  <input type="text" name="company[]" placeholder="e.g., Tech Corp">
-                </div>
-              </div>
-              <div class="input-row">
-                <div class="input-group">
-                  <label>Start Date</label>
-                  <input type="month" name="startDate[]">
-                </div>
-                <div class="input-group">
-                  <label>End Date</label>
-                  <input type="month" name="endDate[]">
-                </div>
-              </div>
-              <div class="input-group">
-                <label>Description</label>
-                <textarea name="jobDescription[]" rows="3" placeholder="Describe your role and achievements..."></textarea>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-small" onclick="addExperience()">+ Add Experience</button>
-        </div>
-
-        <!-- Projects -->
-        <div class="form-group">
-          <h3>Projects</h3>
-          <div id="projects-container">
-            <div class="project-item">
-              <div class="input-row">
-                <div class="input-group">
-                  <label>Project Name</label>
-                  <input type="text" name="projectName[]" placeholder="e.g., E-commerce Website">
-                </div>
-                <div class="input-group">
-                  <label>Project URL</label>
-                  <input type="url" name="projectUrl[]" placeholder="https://...">
-                </div>
-              </div>
-              <div class="input-group">
-                <label>Description</label>
-                <textarea name="projectDescription[]" rows="3" placeholder="Describe the project and your role..."></textarea>
-              </div>
-              <div class="input-group">
-                <label>Technologies Used</label>
-                <input type="text" name="projectTech[]" placeholder="React, Node.js, MongoDB...">
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-small" onclick="addProject()">+ Add Project</button>
-        </div>
-
-        <!-- Education -->
-        <div class="form-group">
-          <h3>Education</h3>
-          <div class="input-row">
-            <div class="input-group">
-              <label for="degree">Degree</label>
-              <input type="text" id="degree" name="degree" placeholder="e.g., Bachelor of Computer Science">
-            </div>
-            <div class="input-group">
-              <label for="institution">Institution</label>
-              <input type="text" id="institution" name="institution" placeholder="e.g., AIT Pune">
-            </div>
-          </div>
-          <div class="input-row">
-            <div class="input-group">
-              <label for="graduationYear">Graduation Year</label>
-              <input type="number" id="graduationYear" name="graduationYear" min="1990" max="2030">
-            </div>
-            <div class="input-group">
-              <label for="gpa">GPA/Percentage</label>
-              <input type="text" id="gpa" name="gpa" placeholder="e.g., 3.8/4.0 or 85%">
-            </div>
+        <div class="form-section">
+          <h3>Experience & Internships</h3>
+          <div class="form-group form-row-full">
+            <label for="p-experience">Work Experience / Internships</label>
+            <textarea id="p-experience" rows="4" placeholder="Company Name - Position (Duration)&#10;Brief description of responsibilities and achievements"></textarea>
           </div>
         </div>
 
-        <!-- Social Links -->
-        <div class="form-group">
-          <h3>Social Links</h3>
-          <div class="input-row">
-            <div class="input-group">
-              <label for="linkedin">LinkedIn</label>
-              <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile">
-            </div>
-            <div class="input-group">
-              <label for="github">GitHub</label>
-              <input type="url" id="github" name="github" placeholder="https://github.com/yourusername">
-            </div>
-          </div>
-          <div class="input-row">
-            <div class="input-group">
-              <label for="portfolio">Personal Website</label>
-              <input type="url" id="portfolio" name="portfolio" placeholder="https://yourwebsite.com">
-            </div>
-            <div class="input-group">
-              <label for="twitter">Twitter</label>
-              <input type="url" id="twitter" name="twitter" placeholder="https://twitter.com/yourusername">
-            </div>
+        <!-- Extracurricular Activities -->
+        <div class="form-section">
+          <h3>Extracurricular Activities</h3>
+          <div class="form-group form-row-full">
+            <label for="p-activities">Activities & Leadership</label>
+            <textarea id="p-activities" rows="3" placeholder="• President of Computer Society&#10;• Volunteer at Tech Fest 2024&#10;• Member of Debate Club"></textarea>
           </div>
         </div>
 
-        <div class="form-actions">
-          <button type="button" class="btn btn-secondary" onclick="showHome()">Back</button>
-          <button type="submit" class="btn">Generate Portfolio</button>
+        <!-- Templates -->
+        <div class="form-section">
+          <h3>Choose Portfolio Template</h3>
+          <div class="template-grid">
+            <div class="template-card" data-template="professional">
+              <h4>Professional</h4>
+              <p>Clean, corporate-style layout perfect for job applications</p>
+            </div>
+            <div class="template-card selected" data-template="modern">
+              <h4>Modern</h4>
+              <p>Contemporary design with golden accents and dark theme</p>
+            </div>
+            <div class="template-card" data-template="creative">
+              <h4>Creative</h4>
+              <p>Artistic layout ideal for design and creative portfolios</p>
+            </div>
+            <div class="template-card" data-template="minimal">
+              <h4>Minimal</h4>
+              <p>Simple, elegant design focusing on content</p>
+            </div>
+          </div>
+          <input type="hidden" id="selected-template" value="modern">
         </div>
+
+        <button class="btn btn-primary" type="submit">
+          <span>Generate Portfolio</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
       </form>
+      <div id="portfolio-output" class="output-container"></div>
     </div>
   </section>
 
-  <!-- PORTFOLIO DISPLAY -->
-  <section id="portfolio-display" class="portfolio-section hidden">
-    <div class="portfolio-controls">
-      <button class="btn btn-secondary" onclick="editPortfolio()">Edit</button>
-      <button class="btn" onclick="downloadPortfolio()">Download</button>
-      <button class="btn btn-small" onclick="showHome()">New Portfolio</button>
-    </div>
-    <div id="generated-portfolio" class="portfolio-container">
-      <!-- Generated portfolio will be inserted here -->
-    </div>
-  </section>
-
-  <!-- TEMPLATES SECTION -->
-  <section id="templates" class="templates-section hidden">
-    <div class="templates-container">
-      <h2>Choose a Template</h2>
-      <div class="templates-grid">
-        <div class="template-card" data-template="modern">
-          <div class="template-preview modern-preview">
-            <div class="preview-header"></div>
-            <div class="preview-content">
-              <div class="preview-text"></div>
-              <div class="preview-text short"></div>
-            </div>
-          </div>
-          <h3>Modern</h3>
-          <p>Clean and professional design</p>
-          <button class="btn btn-small" onclick="selectTemplate('modern')">Use Template</button>
-        </div>
-        
-        <div class="template-card" data-template="creative">
-          <div class="template-preview creative-preview">
-            <div class="preview-header creative"></div>
-            <div class="preview-content">
-              <div class="preview-text"></div>
-              <div class="preview-text short"></div>
-            </div>
-          </div>
-          <h3>Creative</h3>
-          <p>Bold and artistic layout</p>
-          <button class="btn btn-small" onclick="selectTemplate('creative')">Use Template</button>
-        </div>
-        
-        <div class="template-card" data-template="minimal">
-          <div class="template-preview minimal-preview">
-            <div class="preview-header minimal"></div>
-            <div class="preview-content">
-              <div class="preview-text"></div>
-              <div class="preview-text short"></div>
-            </div>
-          </div>
-          <h3>Minimal</h3>
-          <p>Simple and elegant design</p>
-          <button class="btn btn-small" onclick="selectTemplate('minimal')">Use Template</button>
-        </div>
-      </div>
-      <div class="templates-actions">
-        <button class="btn btn-secondary" onclick="showHome()">Back</button>
-      </div>
-    </div>
-  </section>
-
+  <!-- Footer -->
   <footer>
-    <p>© 2025 Nexus – One-stop platform for creation of portfolios | Built for Professionals, by Professionals</p>
+    <div class="footer-content">
+      <p>© 2025 Nexus – AIT Pune | Built for Students, by Students</p>
+      <div class="footer-links">
+        <a href="#" class="footer-link">Privacy</a>
+        <a href="#" class="footer-link">Terms</a>
+        <a href="#" class="footer-link">Contact</a>
+      </div>
+    </div>
   </footer>
 
+  <!-- JS -->
   <canvas id="network"></canvas>
   <script src="script.js"></script>
 </body>
